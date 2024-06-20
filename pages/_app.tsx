@@ -3,8 +3,8 @@ import { withHydrate } from "effector-next";
 import { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-import NextNProgress from 'nextjs-progressbar'
-import 'react-toastify/dist/ReactToastify.css'
+import NextNProgress from 'nextjs-progressbar';
+import 'react-toastify/dist/ReactToastify.css';
 
 const enhance = withHydrate()
 
