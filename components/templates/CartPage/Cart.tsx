@@ -277,7 +277,6 @@ const CartPage = () => {
             <div className={`container ${styles.cart__none}`}>Корзина пуста</div>}
 
             </div>
-      
     )
 }
 
