@@ -126,7 +126,7 @@ const FavoritesPage = () => {
     if(mounted === true){ //Перенаправление если пользователь неавторизован
         if(!shouldLoadContent && !user.username){
             router.push('/')
-            return
+            return <></>
         } 
     }
 
