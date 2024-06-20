@@ -16,7 +16,7 @@ const AuthPage = () => {
 
     if(shouldLoadContent){
         router.push('/main')
-        return
+        return <></>
     } 
 
     return(

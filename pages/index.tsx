@@ -14,7 +14,7 @@ function Auth() {
 
   if(shouldLoadContent){//Если пользователь авторизован то редиректим на главную страницу
     router.push('/main')
-    return
+    return <></>
   }
 
   const redirectToMain = () =>{
