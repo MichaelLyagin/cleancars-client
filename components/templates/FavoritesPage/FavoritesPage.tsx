@@ -34,36 +34,44 @@ const FavoritesPage = () => {
 
     let contentLoaded = false;
 
-    const checkInCart = (item: IProduct) =>{
-        const cartItem = shoppingCart.find((cartItem) => cartItem.product_id === item.id);
-        if(cartItem){
-            contentLoaded=true 
-            return true;
+    const checkInCart = (item: IProduct | undefined) =>{
+        if(item){
+            const cartItem = shoppingCart.find((cartItem) => cartItem.product_id === item.id);
+            if(cartItem){
+                contentLoaded=true 
+                return true;
+            }
+            else{
+                contentLoaded=true 
+                return false;
+            } 
         }
-        else{
-            contentLoaded=true 
-            return false;
-        } 
+        return false
     }
 
-    const toggleToCart = (item: IProduct) => {
-        return toggleCartItem(user.username, item.id, 1, checkInCart(item))
+    const toggleToCart = (item: IProduct | undefined) => {
+        if(item)
+            return toggleCartItem(user.username, item.id, 1, checkInCart(item))
     }
 
-    const checkInFavorites = (item: IProduct) =>{
-        const cartItem = favorites.find((cartItem) => cartItem.product_id === item.id);
-        if(cartItem){
-            contentLoaded=true 
-            return true;
+    const checkInFavorites = (item: IProduct | undefined) =>{
+        if(item){
+            const cartItem = favorites.find((cartItem) => cartItem.product_id === item.id);
+            if(cartItem){
+                contentLoaded=true 
+                return true;
+            }
+            else{
+                contentLoaded=true 
+                return false;
+            } 
         }
-        else{
-            contentLoaded=true 
-            return false;
-        } 
+        return false
     }
 
-    const toggleToFavorites = (item: IProduct) => {
-        return toggleFavoritesItem(user.username, item.id, checkInFavorites(item))
+    const toggleToFavorites = (item: IProduct | undefined) => {
+        if(item)
+            return toggleFavoritesItem(user.username, item.id, checkInFavorites(item))
     }
 
     useEffect(() => {
