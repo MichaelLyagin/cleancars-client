@@ -50,7 +50,7 @@ const CartPage = () => {
         return false
       }
 
-    const toggleToCart = (item: IProduct) => {
+    const toggleToCart = (item: IProduct | undefined) => {
         if(item)
             return toggleCartItem(user.username, item.id, 1, checkInCart(item))
     }
