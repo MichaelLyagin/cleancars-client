@@ -63,8 +63,9 @@ const CartPage = () => {
         } 
     }
 
-    const toggleToFavorites = (item: IProduct) => {
-        return toggleFavoritesItem(user.username, item.id, checkInFavorites(item))
+    const toggleToFavorites = (item: IProduct | undefined) => {
+        if(item)
+            return toggleFavoritesItem(user.username, item.id, checkInFavorites(item))
     }
 
     useEffect(() => {
