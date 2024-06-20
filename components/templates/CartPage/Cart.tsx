@@ -35,20 +35,24 @@ const CartPage = () => {
 
     let contentLoaded = false;
 
-    const checkInCart = (item: IProduct) =>{
-        const cartItem = shoppingCart.find((cartItem) => cartItem.product_id === item.id);
-        if(cartItem){
-            contentLoaded=true 
-            return true;
+    const checkInCart = (item: IProduct | undefined) =>{
+        if(item){
+            const cartItem = shoppingCart.find((cartItem) => cartItem.product_id === item.id);
+            if(cartItem){
+                contentLoaded=true 
+                return true;
+            }
+            else{
+                contentLoaded=true 
+                return false;
+            } 
         }
-        else{
-            contentLoaded=true 
-            return false;
-        } 
+        return false
       }
 
     const toggleToCart = (item: IProduct) => {
-        return toggleCartItem(user.username, item.id, 1, checkInCart(item))
+        if(item)
+            return toggleCartItem(user.username, item.id, 1, checkInCart(item))
     }
 
     const checkInFavorites = (item: IProduct) =>{
