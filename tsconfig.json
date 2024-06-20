@@ -17,13 +17,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    //"jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "paths": {
-      "react": [ "./node_modules/@types/react" ],
       "@/*": [
         "./*"
-      ]
+      ],
+      "react": [ "./node_modules/@types/react" ],
     },
     "plugins": [
       {
