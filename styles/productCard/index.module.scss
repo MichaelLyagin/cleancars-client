@@ -1,0 +1,103 @@
+.card{
+    width: 245px;
+    height: 380px;
+    margin-right: 20px;
+
+    &__img{
+        height: 194px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        & img {
+            border-radius: 5px;
+            height: 190px;
+            
+        }
+    }
+
+    &__favorites{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+    }
+
+    &__title{
+        height: 60px;
+        font-size: 16px;
+        font-weight: 300;
+
+        &.dark_mode{
+            color: white;
+        }
+    }
+
+    &__price{
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 15px;
+
+        &.dark_mode{
+            color: white;
+        }
+    }
+
+    &__rating{
+        width: 100%;
+        display: flex;
+        justify-content: right;
+
+        &.dark_mode{
+            color: white;
+        }
+
+        &__block{
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            width: 100%;
+            margin-right: 14px;
+            padding-right: 5px;
+            min-height: 19px;
+            margin-top: -5px;
+
+            & div{
+                margin-left: 5px;
+
+                &.dark_mode{
+                    color: white;
+                }
+            }
+            
+        }
+    }
+
+    &__button{
+        height: 38px;
+        width: 230px;
+        cursor: pointer;
+        background-color: #3CA444;
+        color: white;
+        border: 1px solid #3CA444;
+        border-radius: 10px;
+        font-size: 18px;    
+
+        &_added{
+            height: 38px;
+            width: 230px;
+            cursor: pointer;
+            background-color: white;
+            border: 2px solid #3CA444;
+            color: #3CA444;
+            border-radius: 10px;
+            font-size: 18px;
+
+            &.dark_mode{
+                background-color: #222;
+                border: 2px solid #3CA444;
+            }
+        }
+    }
+}

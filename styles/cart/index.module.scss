@@ -1,0 +1,146 @@
+.cart{
+
+    &__container {
+        min-height: 65vh;
+
+    & .card{
+        width: 245px;
+        height: 370px;
+        margin-right: 15px;
+        margin-top: 30px;
+
+        &__img{
+            height: 194px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            & img {
+                height: 190px;
+            }
+
+        }
+
+        &__title{
+            height: 60px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        &__price{
+            font-size: 20px;
+            font-weight: 400;
+
+        }
+
+        &__favorites{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            cursor: pointer;
+        }
+
+        &__button{
+            height: 38px;
+            width: 230px;
+            cursor: pointer;
+            background-color: #3CA444;
+            color: white;
+            border: 1px solid #3CA444;
+            border-radius: 10px;
+            font-size: 18px;    
+
+            &_added{
+                height: 38px;
+                width: 230px;
+                cursor: pointer;
+                background-color: white;
+                border: 1px solid #3CA444;
+                color: #3CA444;
+                border-radius: 10px;
+                font-size: 18px;
+            }
+        }
+
+        &__middle_line{
+            width: 95%;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 300;
+            margin: 10px 0px;
+
+            & svg{
+                margin-right: 10px;
+                margin-bottom: 2px;
+            }
+        }
+
+        &__count{   
+            width: 90px;
+
+            & div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+                & button {
+                    border: none;
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    
+                    & svg{
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+    &__none{
+        min-height: 68vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+    }
+
+    &__sum{
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 20px;
+
+    }
+
+    &__main_block{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        //justify-content: space-between;
+
+    }
+
+    &__make_order{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+
+        &__btn{
+        width: 100%;
+        height: 38px;
+        //width: 230px;
+        cursor: pointer;
+        background-color: #3CA444;
+        color: white;
+        border: 1px solid #3CA444;
+        border-radius: 10px;
+        font-size: 18px;   
+        }
+    }
+}
