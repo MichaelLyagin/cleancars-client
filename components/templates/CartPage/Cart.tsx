@@ -159,6 +159,7 @@ const CartPage = () => {
       } 
 
     return(
+        <>
         <div className={styles.cart}>
             {shoppingCart.length ? <div className={`container ${styles.cart__container}`}>
             <h1>Корзина</h1>
@@ -277,6 +278,7 @@ const CartPage = () => {
             <div className={`container ${styles.cart__none}`}>Корзина пуста</div>}
 
             </div>
+            </>
     )
 }
 
