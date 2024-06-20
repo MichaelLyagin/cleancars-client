@@ -167,7 +167,7 @@ const CartPage = () => {
                         <div className={styles.card}> 
             <div className={styles.card__img}>
                 <img src={prod.img} alt={prod.name} />
-                {user.username && shouldLoadContent ? 
+                {user.username && shouldLoadContent && prod ? 
                     <div className={styles.card__favorites} onClick={() => toggleToFavorites(prod)}>
                         {checkInFavorites(prod) ? 
                             <a>
