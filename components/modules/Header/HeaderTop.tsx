@@ -21,21 +21,21 @@ const HeaderTop = () => {
               </Link>
             </li>
             <li className={styles.header__nav__list__item}>
-              <Link href="/contacts" passHref legacyBehavior>
+              <Link href="/contact" passHref legacyBehavior>
                 <a className={styles.header__nav__list__item__link}>
                   Контакты
                 </a>
               </Link>
             </li>
             <li className={styles.header__nav__list__item}>
-              <Link href="/shipping-payment" passHref legacyBehavior>
+              <Link href="/delivery" passHref legacyBehavior>
                 <a className={styles.header__nav__list__item__link}>
                   Доставка и оплата
                 </a>
               </Link>
             </li>
             <li className={styles.header__nav__list__item}>
-              <Link href="/catalog" passHref legacyBehavior>
+              <Link href="/feedback" passHref legacyBehavior>
                 <a className={styles.header__nav__list__item__link}>
                   Обратная связь
                 </a>

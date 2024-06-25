@@ -22,3 +22,8 @@ export interface IAccordion {
   boxShadowStyle?: string
   callback?: (arg0: boolean) => void
 }
+
+export interface IGeolocation {
+  latitude: number
+  longitude: number
+}

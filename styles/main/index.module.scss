@@ -238,15 +238,32 @@
         color: white;
       }
 
+      @media (max-width: 950px) {
+        
+        & .main__title{
+          margin-left: 10px;
+        }
+      }
+
       &__row{
         display: flex;
         flex-direction: row;
-        justify-content: space-between
+        justify-content: center;
+
+        @media (max-width: 950px) {
+          flex-direction: column;
+        }
       }
 
       &__block{
         height: 140px;
         width: 50%;
+
+        @media (max-width: 950px) {
+          width: 97%;
+          margin-right: 10px;
+          margin-left: 10px;
+        }
       }
 
       &__qestion{

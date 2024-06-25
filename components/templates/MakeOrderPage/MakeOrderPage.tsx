@@ -2,7 +2,7 @@ import { getCartItemsFx, removeAllFromCartFx, removeFromCartFx } from "@/app/api
 import { getProductFx, updateProductCountFx, updateProductFx } from "@/app/api/products";
 import CartItemCounter from "@/components/elements/CartItemCounter/CartItemCounter";
 import { $shoppingCart, setShoppingCart } from "@/context/cart";
-import { $user } from "@/context/user";
+import { $user, $userCity } from "@/context/user";
 import useRedirectByUserCheck from "@/hooks/useRedirectByUserCheck";
 import { ICartItem } from "@/types/cart";
 import { IProduct, IProducts } from "@/types/products";
@@ -27,6 +27,7 @@ const MakeOrderPage = () => {
     const [registrationStatus, setRegistrationStatus] = useState(false);
     const { shouldLoadContent } = useRedirectByUserCheck()
     const user = useStore($user)
+    const userCity = useStore($userCity)
     const router = useRouter();
     const shoppingCart = useStore($shoppingCart)
     const favorites = useStore($favorites)
@@ -35,7 +36,7 @@ const MakeOrderPage = () => {
     const [error, setError] = useState(false)
     const [mounted, setMounted] = useState(false) //Оптимизация, чтобы рендер не сработал до отрисовки контента в браузере
     const [changedCount, setchangedCount] = useState(false)
-    const [address, setAddress ] = useState('');
+    const [address, setAddress ] = useState(userCity.city.length ? `г. ${userCity.city} ${userCity.street}` : '');
     const [paymentMethod, setPaymentMethod ] = useState('online');
     const [agree, setAgree ] = useState(false);
 

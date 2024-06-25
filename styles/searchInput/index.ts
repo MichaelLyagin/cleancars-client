@@ -35,15 +35,15 @@ import {
   ) => ({
     ...defaultStyles,
     boxShadow: 'none',
-    borderRadius: '4px',
+    borderRadius: '10px',
     border: 'none',
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     height: 'auto',
     overflow: 'hidden',
     backgroundColor: theme === 'dark' ? '#2d2d2d' : '#ffffff',
-    width: 'calc(100% + 40px)',
-    minHeight: 30,
+    width: '100%',
+    minHeight: 40,
   })
   
   export const optionStyles = (
@@ -53,11 +53,11 @@ import {
   ) => {
     const backgroundHoverForLightMode = state.isSelected
       ? state.isSelected
-        ? '#9e9e9e'
-        : '#f2f2f2'
+        ? '#3CA444'
+        : '#3CA444'
       : state.isSelected
-        ? '#f2f2f2'
-        : '#9e9e9e'
+        ? '#3CA444'
+        : '#3CA444'
   
     const backgroundHoverForDarkMode = state.isSelected
       ? state.isSelected
@@ -134,7 +134,7 @@ import {
       },
       '&::-webkit-scrollbar-thumb': {
         background: '#454545',
-        borderRadius: '3px',
+        borderRadius: '5px',
       },
       '&::-webkit-scrollbar-thumb:hover': {
         background: 'grey',
