@@ -10,7 +10,7 @@ import { useStore } from 'effector-react'
 import { ICategory, IProduct, IProducts } from '@/types/products'
 import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
-import { IQueryParams } from '@/types/catalog'
+import { IQueryParams, ITextArray } from '@/types/catalog'
 import { useRouter } from 'next/router'
 import CatalogFilters from '@/components/modules/CatalogPage/CatalogFilters'
 import { checkQueryParams } from '@/utils/catalog'
@@ -34,6 +34,17 @@ const CatalogPage = ({query}: {query: IQueryParams}) => {
     const category = useStore($category); 
     const user = useStore($user)
     const [visionModal, setVisionModal] = useState(false);
+    const textArray: ITextArray[] = [
+      {
+        id: 10, 
+        text:'В детейлинг экстерьера входит мойка, полировка, нанесение защитных покрытий, очистка колёс и шин, а также обработка стёкол и фар. Эти действия помогают не только улучшить внешний вид, но и сохранить стоимость автомобиля.'
+      },
+      {
+        id: 20, 
+        text:'Детейлинг интерьера автомобиля — это комплексная очистка и защита внутренних элементов, направленная на улучшение внешнего вида и комфорта, а также поддержание рыночной стоимости авто.'
+      },
+    ];
+    let text: string | undefined = ''
 
 
     const isAnyBrandChecked = Array.isArray(productBrandsId) ? productBrandsId.some(
@@ -209,6 +220,9 @@ const CatalogPage = ({query}: {query: IQueryParams}) => {
     }
 
     const getCategoryName = () => { //Хлебные крошки
+      let textf = textArray.find(item => item.id === category.category_id)
+      if(textf)
+        text = textf?.text
       if(category.category_id === 10 || category.category_id === 20) {
         return <div><a onClick={()=>setSelectedCategory(category)}>{category.category_name}</a></div>
       } else {
@@ -236,9 +250,12 @@ const CatalogPage = ({query}: {query: IQueryParams}) => {
                 <div className={styles.catalog__category_name}>{getCategoryName()}</div>
                 <br/>
                 <div className={styles.catalog__info}>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 15H11V9H9V15ZM10 7C10.2833 7 10.521 6.904 10.713 6.712C10.905 6.52 11.0007 6.28267 11 6C10.9993 5.71733 10.9033 5.48 10.712 5.288C10.5207 5.096 10.2833 5 10 5C9.71667 5 9.47933 5.096 9.288 5.288C9.09667 5.48 9.00067 5.71733 9 6C8.99933 6.28267 9.09533 6.52033 9.288 6.713C9.48067 6.90567 9.718 7.00133 10 7ZM10 20C8.61667 20 7.31667 19.7373 6.1 19.212C4.88334 18.6867 3.825 17.9743 2.925 17.075C2.025 16.1757 1.31267 15.1173 0.788001 13.9C0.263335 12.6827 0.000667932 11.3827 1.26582e-06 10C-0.000665401 8.61733 0.262001 7.31733 0.788001 6.1C1.314 4.88267 2.02633 3.82433 2.925 2.925C3.82367 2.02567 4.882 1.31333 6.1 0.788C7.318 0.262667 8.618 0 10 0C11.382 0 12.682 0.262667 13.9 0.788C15.118 1.31333 16.1763 2.02567 17.075 2.925C17.9737 3.82433 18.6863 4.88267 19.213 6.1C19.7397 7.31733 20.002 8.61733 20 10C19.998 11.3827 19.7353 12.6827 19.212 13.9C18.6887 15.1173 17.9763 16.1757 17.075 17.075C16.1737 17.9743 15.1153 18.687 13.9 19.213C12.6847 19.739 11.3847 20.0013 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#3CA444"/>
-                  </svg>
+                  <div className={styles.catalog__info__circle}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 15H11V9H9V15ZM10 7C10.2833 7 10.521 6.904 10.713 6.712C10.905 6.52 11.0007 6.28267 11 6C10.9993 5.71733 10.9033 5.48 10.712 5.288C10.5207 5.096 10.2833 5 10 5C9.71667 5 9.47933 5.096 9.288 5.288C9.09667 5.48 9.00067 5.71733 9 6C8.99933 6.28267 9.09533 6.52033 9.288 6.713C9.48067 6.90567 9.718 7.00133 10 7ZM10 20C8.61667 20 7.31667 19.7373 6.1 19.212C4.88334 18.6867 3.825 17.9743 2.925 17.075C2.025 16.1757 1.31267 15.1173 0.788001 13.9C0.263335 12.6827 0.000667932 11.3827 1.26582e-06 10C-0.000665401 8.61733 0.262001 7.31733 0.788001 6.1C1.314 4.88267 2.02633 3.82433 2.925 2.925C3.82367 2.02567 4.882 1.31333 6.1 0.788C7.318 0.262667 8.618 0 10 0C11.382 0 12.682 0.262667 13.9 0.788C15.118 1.31333 16.1763 2.02567 17.075 2.925C17.9737 3.82433 18.6863 4.88267 19.213 6.1C19.7397 7.31733 20.002 8.61733 20 10C19.998 11.3827 19.7353 12.6827 19.212 13.9C18.6887 15.1173 17.9763 16.1757 17.075 17.075C16.1737 17.9743 15.1153 18.687 13.9 19.213C12.6847 19.739 11.3847 20.0013 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#3CA444"/>
+                    </svg>
+                    <div className={styles.catalog__info__circle__text}>{text}</div>
+                  </div>
                 </div>
                 {user.role ? 
                 <div  className={styles.catalog__admin}>

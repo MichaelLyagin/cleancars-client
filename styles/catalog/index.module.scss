@@ -683,12 +683,44 @@
       //text-decoration: underline;
       display: flex;
       justify-content: end;
+      position: relative;
 
       & svg {
         width: 31px;
         height: 31px;
-        margin-top: -30px;
+        margin-top: -50px;
         margin-bottom: 10px;
+        margin-left: -30px;
+      }
+
+      &__circle{
+          width: 1px;
+          height: 1px;
+          border-radius: 12px;
+          background-color: #3CA444;
+          cursor: pointer;
+
+          &__text{
+              display: none;
+          }
+      }
+
+      &__circle:hover &__circle__text{
+          display: flex;
+          position: absolute;
+          top: -30px;
+          right: 40px;
+          transition: display .2s ease-in-out;
+          padding: 2px 6px;
+          
+          background-color: #3CA444;
+          color: white;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 600;
+          justify-content: center;
+          align-items: center;
+          z-index: 10;
       }
 
     }

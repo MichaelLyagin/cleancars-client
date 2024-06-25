@@ -20,6 +20,11 @@ export interface IFilterCheckboxItem {
   event?: Event<IFilterCheckboxItem>
 }
 
+export interface ITextArray {
+  id: number
+  text: string
+}
+
 export interface IBrandAccordionProps {
   brandList: IFilterCheckboxItem[]
   title: string | false

@@ -29,7 +29,7 @@ const MainBanner = () => {
                     >
                         <a onClick={() => setSelectedCategory({category_id: 14, category_name: 'Уход за резиной'})}>
                             <div className={styles.banner__tires__circle}>
-                            <div className={styles.banner__tires__circle__text}>Уход за шинами</div>
+                                <div className={styles.banner__tires__circle__text}>Уход за шинами</div>
                             </div>
                         </a>
                     </Link>
